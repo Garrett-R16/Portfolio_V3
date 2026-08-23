@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garrett Russell — Electrical Engineer</title>
+<meta name="description" content="Garrett Russell — electrical engineer. Power electronics, PCBs, and mixed-signal design.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1a18'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23b45c1f' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --ink: #1a1a18;
+    --muted: #6b6862;
+    --line: #e2ded7;
+    --accent: #b45c1f; /* copper */
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; }
+  a:hover { color: var(--accent); }
+
+  /* ============ HEADER ============ */
+  header { padding: 76px 0 44px; }
+  h1 { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.02em; }
+  .tagline { font-size: 1.18rem; color: var(--ink); margin-top: 10px; max-width: 600px; }
+  .sub { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin-top: 14px; }
+  .sub a { text-decoration: none; }
+  .links { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; font-family: var(--mono); font-size: 0.8rem; }
+  .links a {
+    text-decoration: none; padding: 8px 14px;
+    border: 1px solid var(--line); border-radius: 6px; background: #fff;
+  }
+  .links a:hover { border-color: var(--accent); }
+  .links a.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 500; }
+  .links a.primary:hover { filter: brightness(1.08); color: #fff; }
+
+  /* ============ HERO FIGURE ============ */
+  .figure { padding-bottom: 20px; }
+  .figure video, .figure img {
+    width: 100%; display: block; border: 1px solid var(--line); border-radius: 6px;
+    aspect-ratio: 16 / 7.5; object-fit: cover; background: #000;
+  }
+  .figure figcaption {
+    font-family: var(--mono); font-size: 0.75rem; color: var(--muted);
+    letter-spacing: 0.08em; margin-top: 10px;
+  }
+  .figure figcaption span { color: var(--accent); }
+
+  /* ============ SECTIONS ============ */
+  section { padding: 44px 0 12px; border-top: 1px solid var(--line); margin-top: 32px; }
+  .label {
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 28px;
+  }
+  .label span { color: var(--accent); }
+
+  /* ============ PROJECT CARDS ============ */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: 6px;
+    overflow: hidden; transition: border-color 0.15s ease;
+  }
+  .card:hover { border-color: #c9c2b8; }
+  .card.wide { grid-column: 1 / -1; }
+  .card img, .card video { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; display: block; border-bottom: 1px solid var(--line); }
+  .card.wide img, .card.wide video { aspect-ratio: 16 / 6.5; }
+  .card .body { padding: 18px 20px 22px; }
+  .card h3 { font-size: 1.02rem; font-weight: 600; }
+  .specs { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin: 5px 0 10px; }
+  .card p.desc { color: #3d3b36; font-size: 0.92rem; }
+  .card .more { font-family: var(--mono); font-size: 0.76rem; margin-top: 10px; display: inline-block; }
+  .slot {
+    aspect-ratio: 16 / 8; display: flex; align-items: center; justify-content: center; text-align: center;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 10px, #f1ede7 10px, #f1ede7 11px);
+    border-bottom: 1px solid var(--line); padding: 8px;
+    color: var(--muted); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em;
+  }
+
+  /* ============ EXPERIENCE ============ */
+  .job { display: grid; grid-template-columns: 150px 1fr; gap: 8px 24px; padding: 14px 0; }
+  .job + .job { border-top: 1px dashed var(--line); }
+  .job .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); padding-top: 3px; }
+  .job h3 { font-size: 0.98rem; font-weight: 600; }
+  .job .role { color: var(--muted); font-weight: 400; font-size: 0.9rem; }
+  .job p.desc { font-size: 0.9rem; color: #3d3b36; margin-top: 4px; }
+  @media (max-width: 560px) { .job { grid-template-columns: 1fr; gap: 2px; } }
+
+  /* ============ FOOTER ============ */
+  footer { padding: 44px 0 84px; border-top: 1px solid var(--line); margin-top: 32px; }
+  footer p { color: #3d3b36; font-size: 0.95rem; max-width: 560px; }
+  footer .links { margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Garrett Russell</h1>
+    <p class="tagline">I design power electronics, PCBs, and mixed-signal silicon — hardware that gets built, tested, and shipped.</p>
+    <p class="sub">EE @ Purdue '28 · previously <a href="https://www.reflectorbital.com/" target="_blank" rel="noopener">Reflect Orbital</a> + <a href="https://www.spacex.com/" target="_blank" rel="noopener">SpaceX</a> · Massachusetts, USA</p>
+    <nav class="links">
+      <a class="primary" href="mailto:16garrett.russell@gmail.com">Get in touch</a>
+      <a href="Garrett_Russell_Resume.pdf">Resume</a>
+      <a href="https://github.com/Garrett-R16" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/garrett-russell123/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">YouTube</a>
+    </nav>
+  </header>
+
+  <!-- SWAP: replace with your best launch / bring-up video. Poster shows while loading. -->
+  <figure class="figure">
+    <video autoplay muted loop playsinline poster="assets/staticfire.jpg">
+      <source src="assets/staticfire.mp4" type="video/mp4">
+    </video>
+    <figcaption><span>FIG. 01</span> — STATIC FIRE · MAVERIK FLIGHT COMPUTER RUNNING THE SHOW</figcaption>
+  </figure>
+
+  <section id="work">
+    <p class="label"><span>01</span> — Selected Work</p>
+    <div class="grid">
+
+      <div class="card wide">
+        <img src="assets/maverik.jpg" alt="MAVERIK flight computer 3D render">
+        <div class="body">
+          <h3>MAVERIK — Thrust-Vector-Control Flight Computer</h3>
+          <p class="specs">STM32 · UWB · RF · 3× pyro · 5V/8A buck · 70% smaller than prototypes</p>
+          <p class="desc">Custom flight computer and full software stack — sensor drivers, Kalman filter, state machine, and a direct-quaternion non-linear P²+I controller that held a rocket's attitude within 5° of setpoint in flight. Build and test content has reached 1M+ views.</p>
+          <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the flights →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="assets/layout.jpg" alt="8-layer PCB layout">
+        <!-- SWAP: placeholder image — replace with a shareable board photo -->
+        <div class="body">
+          <h3>V3 Flight Computer — Reflect Orbital</h3>
+          <p class="specs">8-layer EMC stackup · 3 bucks · flyback · Ethernet · −35% size</p>
+          <p class="desc">Owned trades, schematic, layout, and bring-up. Plus a 15W constant-current magnetorquer driver tuned to kill EMI, and a 60W 28V–28V isolated flyback for a custom radio.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <!-- SWAP: drop in an ADC schematic/layout screenshot, then delete this .slot div -->
+        <div class="slot">MEDIA SLOT — ADC SCHEMATIC / LAYOUT</div>
+        <div class="body">
+          <h3>4-bit 10 MS/s SAR ADC — Purdue SoCET</h3>
+          <p class="specs">Cadence Virtuoso · Strong-Arm comparator · SystemVerilog · −60% power</p>
+          <p class="desc">Successive-approximation ADC for energy-critical applications — transistor-level comparator design plus SAR control logic written and simulated in SystemVerilog.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <!-- SWAP: drop in a charger photo, then delete this .slot div -->
+        <div class="slot">MEDIA SLOT — CHARGER PHOTO</div>
+        <div class="body">
+          <h3>High-Voltage Capacitor Charger</h3>
+          <p class="specs">Mazzilli ZVS flyback · 15,000 µF bank · 160 VDC</p>
+          <p class="desc">A zero-voltage-switching flyback driver for rapidly charging a large capacitor bank — designed, built, and tested at home.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <!-- SWAP: drop in a robot-arm photo/video, then delete this .slot div -->
+        <div class="slot">MEDIA SLOT — ROBOT ARM</div>
+        <div class="body">
+          <h3>18650 Battery Assembler</h3>
+          <p class="specs">Robot arm · teleop demos · ACT policy · AMD Hack @ StarkHacks</p>
+          <p class="desc">Trained a robotic arm to assemble 18650 cells from teleoperated demonstrations using an ACT imitation-learning policy. Honorable Best AMD Hack at StarkHacks.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="label"><span>02</span> — Experience</p>
+
+    <div class="job">
+      <p class="when">May – Aug 2026</p>
+      <div>
+        <h3>Reflect Orbital <span class="role">· Electrical Engineering Intern</span></h3>
+        <p class="desc">Flight computer design end-to-end, power converters, EMI-conscious layout, radiation-tolerant compute trades.</p>
+      </div>
+    </div>
+    <div class="job">
+      <p class="when">Jan – May 2026</p>
+      <div>
+        <h3>Purdue SoCET <span class="role">· Analog Design Engineer</span></h3>
+        <p class="desc">SAR ADC and Strong-Arm comparator design in Cadence Virtuoso for a student-built SoC.</p>
+      </div>
+    </div>
+    <div class="job">
+      <p class="when">Jan – Aug 2025</p>
+      <div>
+        <h3>SpaceX <span class="role">· Automation &amp; Controls Engineering Intern</span></h3>
+        <p class="desc">Designed the full electronics suite for an auto-leveling vehicle-transport system; shipped production automation tools (panels, PCBs, PLCs) factory-wide.</p>
+      </div>
+    </div>
+    <div class="job">
+      <p class="when">Aug – Dec 2024</p>
+      <div>
+        <h3>The Data Mine (Viasat) <span class="role">· Undergraduate Researcher</span></h3>
+        <p class="desc">Monte Carlo simulation of orbital collisions in Python to model sustainable debris limits.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="label"><span>03</span> — About</p>
+    <p style="max-width: 640px; font-size: 0.95rem; color: #3d3b36;">
+      I'm interested in the hardware that makes AI possible — efficient compute, the silicon it runs on, and the power systems that feed it. I think analog and mixed-signal design will play a big role in making compute more efficient, and I like proving ideas by building them: boards, converters, controllers, and the occasional self-steering rocket.
+    </p>
+    <p class="sub" style="margin-top:16px;">Altium · KiCad · LTspice · Cadence Virtuoso · SystemVerilog · C/C++ · Python · STM32 · EMI/EMC</p>
+  </section>
+
+  <footer>
+    <p>Want to build something together? Reach out — I'm always looking for hard hardware problems.</p>
+    <nav class="links">
+      <a class="primary" href="mailto:16garrett.russell@gmail.com">16garrett.russell@gmail.com</a>
+      <a href="Garrett_Russell_Resume.pdf">Resume (PDF)</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>
