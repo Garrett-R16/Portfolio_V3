@@ -214,7 +214,7 @@
         <div class="body">
           <h3>Elevate — A Rocket That Can Steer Itself</h3>
           <p class="specs">control systems · Kalman filters · simulation · flight testing</p>
-          <p class="desc">A thrust-vector-controlled model rocket that flies on MAVERIK. A direct-quaternion non-linear P²+I controller held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations. Build and flight content has reached 1M+ views.</p>
+          <p class="desc">A thrust-vector-controlled model rocket stabilized by a 2-axis gimbal and a direct-quaternion non-linear P²+I controller, which held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations. Build and flight content has reached 1M+ views.</p>
           <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the flights <b>→</b></a>
         </div>
       </div>
@@ -224,27 +224,17 @@
         <div class="body">
           <h3>MAVERIK — Thrust-Vector-Control Flight Computer</h3>
           <p class="specs">Altium · STM32 · C/C++ · embedded systems</p>
-          <p class="desc">The custom flight computer behind Elevate — STM32, UWB + RF comms, three pyro channels, and a 5V/8A buck, 70% smaller than the prototypes before it. Runs the full flight software stack: sensor drivers, Kalman filter, state machine, and control loop.</p>
+          <p class="desc">Elevate's next-generation flight computer — STM32, UWB + RF comms, three pyro channels, and a 5V/8A buck, 70% smaller than the prototypes before it. Runs the full flight software stack: sensor drivers, Kalman filter, state machine, and control loop.</p>
         </div>
       </div>
 
       <div class="card reveal">
-        <div class="media"><img src="assets/layout.jpg" alt="8-layer PCB layout"></div>
-        <!-- SWAP: placeholder image — replace with a shareable board photo -->
+        <div class="media"><img src="assets/layout.jpg" alt="EVA flight computer PCB layout"></div>
         <div class="body">
-          <h3>V3 Flight Computer — Reflect Orbital</h3>
-          <p class="specs">Altium · power electronics · EMI/EMC · board bring-up</p>
-          <p class="desc">Owned trades, schematic, layout, and bring-up. Plus a 15W constant-current magnetorquer driver tuned to kill EMI, and a 60W 28V–28V isolated flyback for a custom radio.</p>
-        </div>
-      </div>
-
-      <div class="card reveal">
-        <!-- SWAP: drop in an ADC schematic/layout screenshot, then delete this .slot div -->
-        <div class="slot">MEDIA SLOT — ADC SCHEMATIC / LAYOUT</div>
-        <div class="body">
-          <h3>4-bit 10 MS/s SAR ADC — Purdue SoCET</h3>
-          <p class="specs">Cadence Virtuoso · SystemVerilog · analog design</p>
-          <p class="desc">Successive-approximation ADC for energy-critical applications — transistor-level comparator design plus SAR control logic written and simulated in SystemVerilog.</p>
+          <h3>EVA — Flight Computer</h3>
+          <p class="specs">PCB design · schematic design · C/C++ · state machines</p>
+          <p class="desc">The flight computer that flew Elevate — schematic, layout, and firmware built from scratch, with onboard power, sensing, and pyro channels driving the rocket's 2-axis TVC gimbal.</p>
+          <a class="more" href="https://www.youtube.com/watch?v=PTA0meSgiaA" target="_blank" rel="noopener">watch the build <b>→</b></a>
         </div>
       </div>
 
