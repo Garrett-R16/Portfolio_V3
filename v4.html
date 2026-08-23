@@ -113,6 +113,7 @@
     transition: transform 0.5s ease;
   }
   .card.wide .media img, .card.wide .media video { aspect-ratio: 16 / 6.2; }
+  .card.wide .slot { aspect-ratio: 16 / 6.2; }
   .card:hover .media img, .card:hover .media video { transform: scale(1.03); }
   .card .body { padding: 20px 22px 24px; }
   .card h3 { font-family: var(--disp); font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
@@ -206,12 +207,22 @@
     <div class="grid">
 
       <div class="card wide reveal">
+        <!-- SWAP: drop in your best launch video or photo, then delete this .slot div -->
+        <div class="slot">MEDIA SLOT — LAUNCH FOOTAGE</div>
+        <div class="body">
+          <h3>Elevate — A Rocket That Can Steer Itself</h3>
+          <p class="specs">control systems · Kalman filters · simulation · flight testing</p>
+          <p class="desc">A thrust-vector-controlled model rocket that flies on MAVERIK. A direct-quaternion non-linear P²+I controller held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations. Build and flight content has reached 1M+ views.</p>
+          <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the flights <b>→</b></a>
+        </div>
+      </div>
+
+      <div class="card wide reveal">
         <div class="media"><img src="assets/maverik.jpg" alt="MAVERIK flight computer 3D render"></div>
         <div class="body">
           <h3>MAVERIK — Thrust-Vector-Control Flight Computer</h3>
-          <p class="specs">Altium · STM32 · C/C++ · Kalman filters · control systems</p>
-          <p class="desc">Custom flight computer and full software stack — sensor drivers, Kalman filter, state machine, and a direct-quaternion non-linear P²+I controller that held a rocket's attitude within 5° of setpoint in flight. Build and test content has reached 1M+ views.</p>
-          <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the flights <b>→</b></a>
+          <p class="specs">Altium · STM32 · C/C++ · embedded systems</p>
+          <p class="desc">The custom flight computer behind Elevate — STM32, UWB + RF comms, three pyro channels, and a 5V/8A buck, 70% smaller than the prototypes before it. Runs the full flight software stack: sensor drivers, Kalman filter, state machine, and control loop.</p>
         </div>
       </div>
 
@@ -302,7 +313,7 @@
         <p class="when">Aug 2024 – May 2028</p>
       </div>
       <p class="desc">GPA 4.0/4.0 · Dean's List ×4 · NSCF Keynote Scholarship Finalist (top 2.5%)</p>
-      <p class="fineline">ASIC DESIGN · MICROPROCESSOR SYSTEMS · SIGNALS &amp; SYSTEMS · DIGITAL DESIGN</p>
+      <p class="fineline">RELEVANT COURSEWORK: ASIC DESIGN · MICROPROCESSOR SYSTEMS · SIGNALS &amp; SYSTEMS · DIGITAL DESIGN</p>
     </div>
   </section>
 
@@ -312,9 +323,8 @@
     <p class="about-txt reveal">
       I'm interested in the hardware that makes AI possible — <em>efficient compute, the silicon it runs on, and the power systems that feed it</em>. I think analog and mixed-signal design will play a big role in making compute more efficient, and I like proving ideas by building them: boards, converters, controllers, and the occasional self-steering rocket.
     </p>
-    <div class="chips reveal">
-      <span>Altium</span><span>KiCad</span><span>LTspice</span><span>Cadence Virtuoso</span><span>SystemVerilog</span><span>C/C++</span><span>Python</span><span>STM32</span><span>EMI/EMC</span><span>Bucks &amp; Flybacks</span>
-    </div>
+    <!-- populated by the script below from the project specs lines, so it stays in sync -->
+    <div class="chips reveal" id="skills"></div>
   </section>
 
   <footer>
@@ -328,6 +338,23 @@
 </div>
 
 <script>
+  // Build the skills chips from the project specs lines above, deduplicated in order of appearance.
+  (() => {
+    const chips = document.getElementById("skills");
+    if (!chips) return;
+    const seen = new Set();
+    document.querySelectorAll("#work .specs").forEach((s) => {
+      s.textContent.split("·").forEach((t) => {
+        const skill = t.trim();
+        if (!skill || seen.has(skill.toLowerCase())) return;
+        seen.add(skill.toLowerCase());
+        const el = document.createElement("span");
+        el.textContent = skill;
+        chips.appendChild(el);
+      });
+    });
+  })();
+
   // Fade-up elements as they scroll into view. Falls back to visible if IO is unavailable.
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
