@@ -110,16 +110,17 @@
     border-color: #3c382f;
     box-shadow: 0 20px 44px -20px rgba(0, 0, 0, 0.7);
   }
-  .card.wide { grid-column: 1 / -1; }
   .card .media { overflow: hidden; border-bottom: 1px solid var(--line); }
   .card .media img, .card .media video {
-    width: 100%; aspect-ratio: 16 / 8; object-fit: cover; display: block;
+    width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block;
     transition: transform 0.5s ease;
   }
-  .card.wide .media img, .card.wide .media video { aspect-ratio: 16 / 6.2; }
-  .card.wide .slot { aspect-ratio: 16 / 6.2; }
   .card:hover .media img, .card:hover .media video { transform: scale(1.03); }
   .card .body { padding: 20px 22px 24px; }
+  .card .cat {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
   .card h3 { font-family: var(--disp); font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
   .specs { font-family: var(--mono); font-size: 0.75rem; color: var(--accent-txt); margin: 6px 0 10px; }
   .card p.desc { color: #b8b3aa; font-size: 0.93rem; }
@@ -128,7 +129,7 @@
   .card .more b { display: inline-block; transition: transform 0.15s ease; font-weight: 400; }
   .card .more:hover b { transform: translateX(4px); }
   .slot {
-    aspect-ratio: 16 / 8; display: flex; align-items: center; justify-content: center; text-align: center;
+    aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; text-align: center;
     background: repeating-linear-gradient(-45deg, transparent, transparent 10px, #221f1b 10px, #221f1b 11px);
     border-bottom: 1px solid var(--line); padding: 8px;
     color: var(--muted); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em;
@@ -208,30 +209,35 @@
     <h2>Selected work</h2>
     <div class="grid">
 
-      <div class="card wide reveal">
-        <!-- SWAP: drop in your best launch video or photo, then delete this .slot div -->
-        <div class="slot">MEDIA SLOT — LAUNCH FOOTAGE</div>
+      <div class="card reveal">
+        <div class="media"><img src="assets/maverik.jpg" alt="MAVERIK flight computer 3D render"></div>
         <div class="body">
-          <h3>Elevate — A Rocket That Can Steer Itself</h3>
-          <p class="specs">control systems · Kalman filters · simulation · flight testing</p>
-          <p class="desc">A thrust-vector-controlled model rocket stabilized by a 2-axis gimbal and a direct-quaternion non-linear P²+I controller, which held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations. Build and flight content has reached 1M+ views.</p>
-          <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the flights <b>→</b></a>
+          <p class="cat">Flight Computer · Gen 2</p>
+          <h3>MAVERIK</h3>
+          <p class="specs">Altium · STM32 · C/C++ · embedded systems</p>
+          <p class="desc">Elevate's next-generation flight computer — STM32, UWB + RF comms, three pyro channels, and a 5V/8A buck, 70% smaller than the prototypes before it. Runs the full flight software stack: sensor drivers, Kalman filter, state machine, and control loop.</p>
+          <!-- SWAP: point this at a MAVERIK-specific video when one is up -->
+          <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the build series <b>→</b></a>
         </div>
       </div>
 
-      <div class="card wide reveal">
-        <div class="media"><img src="assets/maverik.jpg" alt="MAVERIK flight computer 3D render"></div>
+      <div class="card reveal">
+        <!-- SWAP: drop in your best launch video or photo, then delete this .slot div -->
+        <div class="slot">MEDIA SLOT — LAUNCH FOOTAGE</div>
         <div class="body">
-          <h3>MAVERIK — Thrust-Vector-Control Flight Computer</h3>
-          <p class="specs">Altium · STM32 · C/C++ · embedded systems</p>
-          <p class="desc">Elevate's next-generation flight computer — STM32, UWB + RF comms, three pyro channels, and a 5V/8A buck, 70% smaller than the prototypes before it. Runs the full flight software stack: sensor drivers, Kalman filter, state machine, and control loop.</p>
+          <p class="cat">A Rocket That Can Steer Itself</p>
+          <h3>Elevate</h3>
+          <p class="specs">control systems · Kalman filters · simulation · flight testing</p>
+          <p class="desc">A thrust-vector-controlled model rocket stabilized by a 2-axis gimbal and a direct-quaternion non-linear P²+I controller, which held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations. Build and flight content has reached 1M+ views.</p>
+          <a class="more" href="https://www.youtube.com/watch?v=DMh3TZubmGo" target="_blank" rel="noopener">watch the flights <b>→</b></a>
         </div>
       </div>
 
       <div class="card reveal">
         <div class="media"><img src="assets/layout.jpg" alt="EVA flight computer PCB layout"></div>
         <div class="body">
-          <h3>EVA — Flight Computer</h3>
+          <p class="cat">Flight Computer · Gen 1</p>
+          <h3>EVA</h3>
           <p class="specs">PCB design · schematic design · C/C++ · state machines</p>
           <p class="desc">The flight computer that flew Elevate — schematic, layout, and firmware built from scratch, with onboard power, sensing, and pyro channels driving the rocket's 2-axis TVC gimbal.</p>
           <a class="more" href="https://www.youtube.com/watch?v=PTA0meSgiaA" target="_blank" rel="noopener">watch the build <b>→</b></a>
@@ -242,9 +248,12 @@
         <!-- SWAP: drop in a charger photo, then delete this .slot div -->
         <div class="slot">MEDIA SLOT — CHARGER PHOTO</div>
         <div class="body">
+          <p class="cat">Power Electronics</p>
           <h3>High-Voltage Capacitor Charger</h3>
           <p class="specs">power electronics · magnetics · prototyping</p>
-          <p class="desc">A zero-voltage-switching flyback driver for rapidly charging a large capacitor bank — designed, built, and tested at home.</p>
+          <p class="desc">A zero-voltage-switching flyback driver for rapidly charging a 15,000 µF capacitor bank to 160 VDC — designed, built, and tested at home.</p>
+          <!-- SWAP: point this at a charger video or writeup when one is up -->
+          <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">see more builds <b>→</b></a>
         </div>
       </div>
 
@@ -252,9 +261,12 @@
         <!-- SWAP: drop in a robot-arm photo/video, then delete this .slot div -->
         <div class="slot">MEDIA SLOT — ROBOT ARM</div>
         <div class="body">
+          <p class="cat">Robotics · ML</p>
           <h3>18650 Battery Assembler</h3>
           <p class="specs">robotics · imitation learning · Python</p>
           <p class="desc">Trained a robotic arm to assemble 18650 cells from teleoperated demonstrations using an ACT imitation-learning policy. Honorable Best AMD Hack at StarkHacks.</p>
+          <!-- SWAP: point this at the hack repo or devpost when you have the link -->
+          <a class="more" href="https://github.com/Garrett-R16" target="_blank" rel="noopener">see the code <b>→</b></a>
         </div>
       </div>
 
