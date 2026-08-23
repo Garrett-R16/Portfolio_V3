@@ -135,7 +135,8 @@
 
   /* ============ EXPERIENCE / EDUCATION ROWS ============ */
   .xp { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); overflow: hidden; }
-  .job { display: grid; grid-template-columns: 170px 1fr; gap: 8px 24px; padding: 20px 24px; position: relative; }
+  .job { padding: 20px 24px; position: relative; }
+  .job .row { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 18px; flex-wrap: wrap; }
   .job + .job { border-top: 1px solid var(--line); }
   .job::before {
     content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
@@ -143,21 +144,19 @@
     transition: transform 0.25s ease;
   }
   .job:hover::before { transform: scaleY(1); }
-  .job .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); padding-top: 3px; }
+  .job .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
   .job h3 { font-family: var(--disp); font-size: 1.02rem; font-weight: 600; }
   .job .role { color: var(--muted); font-weight: 400; font-family: "Inter", sans-serif; font-size: 0.9rem; }
   .job p.desc { font-size: 0.9rem; color: #b8b3aa; margin-top: 4px; }
   .job p.fineline { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
-  @media (max-width: 560px) { .job { grid-template-columns: 1fr; gap: 2px; } }
-
   /* education: same layout as a job row, but static — no panel, no hover */
-  .edu { display: grid; grid-template-columns: 170px 1fr; gap: 8px 24px; padding: 4px 0; }
-  .edu .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); padding-top: 3px; }
+  .edu { padding: 4px 0; }
+  .edu .row { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 18px; flex-wrap: wrap; }
+  .edu .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
   .edu h3 { font-family: var(--disp); font-size: 1.02rem; font-weight: 600; }
   .edu .role { color: var(--muted); font-weight: 400; font-size: 0.9rem; }
   .edu p.desc { font-size: 0.9rem; color: #b8b3aa; margin-top: 4px; }
   .edu p.fineline { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
-  @media (max-width: 560px) { .edu { grid-template-columns: 1fr; gap: 2px; } }
 
   /* ============ ABOUT ============ */
   .about-txt { max-width: 660px; font-size: 1.05rem; color: #c9c4bc; }
@@ -266,32 +265,32 @@
     <h2>Experience</h2>
     <div class="xp reveal">
       <div class="job">
-        <p class="when">May – Aug 2026</p>
-        <div>
+        <div class="row">
           <h3>Reflect Orbital <span class="role">· Electrical Engineering Intern</span></h3>
-          <p class="desc">Flight computer design end-to-end, power converters, EMI-conscious layout, radiation-tolerant compute trades.</p>
+          <p class="when">May – Aug 2026</p>
         </div>
+        <p class="desc">Flight computer design end-to-end, power converters, EMI-conscious layout, radiation-tolerant compute trades.</p>
       </div>
       <div class="job">
-        <p class="when">Jan – May 2026</p>
-        <div>
+        <div class="row">
           <h3>Purdue SoCET <span class="role">· Analog Design Engineer</span></h3>
-          <p class="desc">SAR ADC and Strong-Arm comparator design in Cadence Virtuoso for a student-built SoC.</p>
+          <p class="when">Jan – May 2026</p>
         </div>
+        <p class="desc">SAR ADC and Strong-Arm comparator design in Cadence Virtuoso for a student-built SoC.</p>
       </div>
       <div class="job">
-        <p class="when">Jan – Aug 2025</p>
-        <div>
+        <div class="row">
           <h3>SpaceX <span class="role">· Automation &amp; Controls Engineering Intern</span></h3>
-          <p class="desc">Designed the full electronics suite for an auto-leveling vehicle-transport system; shipped production automation tools (panels, PCBs, PLCs) factory-wide.</p>
+          <p class="when">Jan – Aug 2025</p>
         </div>
+        <p class="desc">Designed the full electronics suite for an auto-leveling vehicle-transport system; shipped production automation tools (panels, PCBs, PLCs) factory-wide.</p>
       </div>
       <div class="job">
-        <p class="when">Aug – Dec 2024</p>
-        <div>
+        <div class="row">
           <h3>The Data Mine (Viasat) <span class="role">· Undergraduate Researcher</span></h3>
-          <p class="desc">Monte Carlo simulation of orbital collisions in Python to model sustainable debris limits.</p>
+          <p class="when">Aug – Dec 2024</p>
         </div>
+        <p class="desc">Monte Carlo simulation of orbital collisions in Python to model sustainable debris limits.</p>
       </div>
     </div>
   </section>
@@ -300,12 +299,12 @@
     <p class="label">03 — Education</p>
     <h2>Education</h2>
     <div class="edu reveal">
-      <p class="when">Aug 2024 – May 2028</p>
-      <div>
+      <div class="row">
         <h3>Purdue University <span class="role">· B.S. Electrical Engineering</span></h3>
-        <p class="desc">GPA 4.0/4.0 · Dean's List ×4 · NSCF Keynote Scholarship Finalist (top 2.5%)</p>
-        <p class="fineline">ASIC DESIGN · MICROPROCESSOR SYSTEMS · SIGNALS &amp; SYSTEMS · DIGITAL DESIGN</p>
+        <p class="when">Aug 2024 – May 2028</p>
       </div>
+      <p class="desc">GPA 4.0/4.0 · Dean's List ×4 · NSCF Keynote Scholarship Finalist (top 2.5%)</p>
+      <p class="fineline">ASIC DESIGN · MICROPROCESSOR SYSTEMS · SIGNALS &amp; SYSTEMS · DIGITAL DESIGN</p>
     </div>
   </section>
 
