@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garrett Russell — Electrical Engineer</title>
 <meta name="description" content="Garrett Russell — electrical engineer. Power electronics, PCBs, and mixed-signal design.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141210'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23d97a33' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141210'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%2384c318' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
     --ink: #e9e6e1;
     --muted: #9b968d;
     --line: #2b2823;
-    --accent: #d97a33; /* copper, brightened for dark */
-    --accent-txt: #e08a45;
+    --accent: #84c318; /* signal green, carried over from the old site */
+    --accent-txt: #9ad13f;
     --mono: "JetBrains Mono", ui-monospace, monospace;
     --disp: "Space Grotesk", "Inter", sans-serif;
   }
@@ -146,6 +146,15 @@
   .job p.fineline { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
   @media (max-width: 560px) { .job { grid-template-columns: 1fr; gap: 2px; } }
 
+  /* education: same layout as a job row, but static — no panel, no hover */
+  .edu { display: grid; grid-template-columns: 170px 1fr; gap: 8px 24px; padding: 4px 0; }
+  .edu .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); padding-top: 3px; }
+  .edu h3 { font-family: var(--disp); font-size: 1.02rem; font-weight: 600; }
+  .edu .role { color: var(--muted); font-weight: 400; font-size: 0.9rem; }
+  .edu p.desc { font-size: 0.9rem; color: #b8b3aa; margin-top: 4px; }
+  .edu p.fineline { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
+  @media (max-width: 560px) { .edu { grid-template-columns: 1fr; gap: 2px; } }
+
   /* ============ ABOUT ============ */
   .about-txt { max-width: 660px; font-size: 1.05rem; color: #c9c4bc; }
   .about-txt em { font-style: normal; color: var(--accent-txt); font-weight: 500; }
@@ -173,13 +182,12 @@
   <header>
     <h1>Garrett Russell<span class="dot">.</span></h1>
     <p class="tagline">I design <strong>power electronics, PCBs, and mixed-signal silicon</strong> — hardware that gets built, tested, and shipped.</p>
-    <p class="sub">EE @ Purdue '28 · previously <a href="https://www.reflectorbital.com/" target="_blank" rel="noopener">Reflect Orbital</a> + <a href="https://www.spacex.com/" target="_blank" rel="noopener">SpaceX</a> · Massachusetts, USA</p>
+    <p class="sub">EE @ Purdue '28 · previously <a href="https://www.reflectorbital.com/" target="_blank" rel="noopener">Reflect Orbital</a> + <a href="https://www.spacex.com/" target="_blank" rel="noopener">SpaceX</a></p>
     <nav class="links">
       <a class="primary" href="mailto:16garrett.russell@gmail.com">Get in touch</a>
-      <a href="Garrett_Russell_Resume.pdf">Resume</a>
-      <a href="https://github.com/Garrett-R16" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/garrett-russell123/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/garrett-russell123/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Garrett-R16" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </header>
 
@@ -202,7 +210,7 @@
         <div class="media"><img src="assets/maverik.jpg" alt="MAVERIK flight computer 3D render"></div>
         <div class="body">
           <h3>MAVERIK — Thrust-Vector-Control Flight Computer</h3>
-          <p class="specs">STM32 · UWB · RF · 3× pyro · 5V/8A buck · 70% smaller than prototypes</p>
+          <p class="specs">Altium · STM32 · C/C++ · Kalman filters · control systems</p>
           <p class="desc">Custom flight computer and full software stack — sensor drivers, Kalman filter, state machine, and a direct-quaternion non-linear P²+I controller that held a rocket's attitude within 5° of setpoint in flight. Build and test content has reached 1M+ views.</p>
           <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the flights <b>→</b></a>
         </div>
@@ -213,7 +221,7 @@
         <!-- SWAP: placeholder image — replace with a shareable board photo -->
         <div class="body">
           <h3>V3 Flight Computer — Reflect Orbital</h3>
-          <p class="specs">8-layer EMC stackup · 3 bucks · flyback · Ethernet · −35% size</p>
+          <p class="specs">Altium · power electronics · EMI/EMC · board bring-up</p>
           <p class="desc">Owned trades, schematic, layout, and bring-up. Plus a 15W constant-current magnetorquer driver tuned to kill EMI, and a 60W 28V–28V isolated flyback for a custom radio.</p>
         </div>
       </div>
@@ -223,7 +231,7 @@
         <div class="slot">MEDIA SLOT — ADC SCHEMATIC / LAYOUT</div>
         <div class="body">
           <h3>4-bit 10 MS/s SAR ADC — Purdue SoCET</h3>
-          <p class="specs">Cadence Virtuoso · Strong-Arm comparator · SystemVerilog · −60% power</p>
+          <p class="specs">Cadence Virtuoso · SystemVerilog · analog design</p>
           <p class="desc">Successive-approximation ADC for energy-critical applications — transistor-level comparator design plus SAR control logic written and simulated in SystemVerilog.</p>
         </div>
       </div>
@@ -233,7 +241,7 @@
         <div class="slot">MEDIA SLOT — CHARGER PHOTO</div>
         <div class="body">
           <h3>High-Voltage Capacitor Charger</h3>
-          <p class="specs">Mazzilli ZVS flyback · 15,000 µF bank · 160 VDC</p>
+          <p class="specs">power electronics · magnetics · prototyping</p>
           <p class="desc">A zero-voltage-switching flyback driver for rapidly charging a large capacitor bank — designed, built, and tested at home.</p>
         </div>
       </div>
@@ -243,7 +251,7 @@
         <div class="slot">MEDIA SLOT — ROBOT ARM</div>
         <div class="body">
           <h3>18650 Battery Assembler</h3>
-          <p class="specs">Robot arm · teleop demos · ACT policy · AMD Hack @ StarkHacks</p>
+          <p class="specs">robotics · imitation learning · Python</p>
           <p class="desc">Trained a robotic arm to assemble 18650 cells from teleoperated demonstrations using an ACT imitation-learning policy. Honorable Best AMD Hack at StarkHacks.</p>
         </div>
       </div>
@@ -289,14 +297,12 @@
   <section id="education">
     <p class="label">03 — Education</p>
     <h2>Education</h2>
-    <div class="xp reveal">
-      <div class="job">
-        <p class="when">Aug 2024 – May 2028</p>
-        <div>
-          <h3>Purdue University <span class="role">· B.S. Electrical Engineering</span></h3>
-          <p class="desc">GPA 4.0/4.0 · Dean's List ×4 · NSCF Keynote Scholarship Finalist (top 2.5%)</p>
-          <p class="fineline">ASIC DESIGN · MICROPROCESSOR SYSTEMS · SIGNALS &amp; SYSTEMS · DIGITAL DESIGN</p>
-        </div>
+    <div class="edu reveal">
+      <p class="when">Aug 2024 – May 2028</p>
+      <div>
+        <h3>Purdue University <span class="role">· B.S. Electrical Engineering</span></h3>
+        <p class="desc">GPA 4.0/4.0 · Dean's List ×4 · NSCF Keynote Scholarship Finalist (top 2.5%)</p>
+        <p class="fineline">ASIC DESIGN · MICROPROCESSOR SYSTEMS · SIGNALS &amp; SYSTEMS · DIGITAL DESIGN</p>
       </div>
     </div>
   </section>
@@ -316,9 +322,8 @@
     <p class="big reveal">Want to build something together? <a href="mailto:16garrett.russell@gmail.com">Say hello</a> — I'm always looking for hard hardware problems.</p>
     <nav class="links reveal">
       <a class="primary" href="mailto:16garrett.russell@gmail.com">16garrett.russell@gmail.com</a>
-      <a href="Garrett_Russell_Resume.pdf">Resume (PDF)</a>
     </nav>
-    <p class="fine">© 2026 GARRETT RUSSELL · HAND-CODED, NO FRAMEWORK, NOTHING TO BREAK</p>
+    <p class="fine">© 2026 GARRETT RUSSELL</p>
   </footer>
 
 </div>
