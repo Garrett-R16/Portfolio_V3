@@ -127,6 +127,20 @@
     transition: transform 0.5s ease;
   }
   .card:hover .media img, .card:hover .media video { transform: scale(1.03); }
+  .media.yt { position: relative; cursor: pointer; }
+  .media.yt .play {
+    position: absolute; inset: 0; margin: auto; width: 58px; height: 58px;
+    border-radius: 50%; background: rgba(20, 18, 16, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .media.yt .play::after {
+    content: ""; position: absolute; inset: 0; margin: auto; width: 0; height: 0;
+    border-left: 16px solid var(--accent); border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; transform: translateX(3px);
+  }
+  .media.yt:hover .play { transform: scale(1.1); background: rgba(20, 18, 16, 0.88); }
+  .media.yt iframe { width: 100%; aspect-ratio: 16 / 10; border: 0; display: block; }
   .card .body { padding: 20px 22px 24px; }
   .card .cat {
     font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em;
@@ -222,7 +236,10 @@
     <div class="grid">
 
       <div class="card reveal">
-        <div class="media"><img src="assets/maverik-board.jpg" alt="MAVERIK flight computer board"></div>
+        <div class="media yt" data-yt="e-Ok50hpXP4" role="button" tabindex="0" aria-label="Play MAVERIK build video">
+          <img src="assets/maverik-board.jpg" alt="MAVERIK flight computer board">
+          <span class="play"></span>
+        </div>
         <div class="body">
           <h3>MAVERIK</h3>
           <p class="cat">Flight Computer · Gen 2</p>
@@ -230,23 +247,27 @@
           <p class="desc">Elevate's next-generation flight computer: STM32, UWB + RF comms, three pyro channels, a 5V/8A buck, and &lt;1% larger than previous versions. All drivers are custom because I used fancy new sensors and apparently no-one was C-pilled like I was.
           </p>
           <!-- SWAP: point this at a MAVERIK-specific video when one is up -->
-          <a class="more" href="https://youtu.be/e-Ok50hpXP4" target="_blank" rel="noopener">see how I made it <b>→</b></a>
         </div>
       </div>
 
       <div class="card reveal">
-        <div class="media"><img src="assets/elevate-launch.jpg" alt="Elevate lifting off from a snowy field"></div>
+        <div class="media yt" data-yt="DMh3TZubmGo" role="button" tabindex="0" aria-label="Play Elevate flight video">
+          <img src="assets/elevate-launch.jpg" alt="Elevate lifting off from a snowy field">
+          <span class="play"></span>
+        </div>
         <div class="body">
           <h3>Elevate</h3>
           <p class="cat">A Rocket That Can Steer Itself</p>
           <p class="specs">control systems · sensor fusion · kalman filtering</p>
           <p class="desc">Thrust-vector-controlled model rocket stabilized by a 2-axis gimbal and a direct-quaternion non-linear P²+I controller, which held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations.</p>
-          <a class="more" href="https://www.youtube.com/watch?v=DMh3TZubmGo" target="_blank" rel="noopener">watch the V2 flights <b>→</b></a>
         </div>
       </div>
 
       <div class="card reveal">
-        <div class="media"><img src="assets/eva-layout.jpg" alt="EVA flight computer PCB layout"></div>
+        <div class="media yt" data-yt="PTA0meSgiaA" data-start="3" role="button" tabindex="0" aria-label="Play EVA build video">
+          <img src="assets/eva-layout.jpg" alt="EVA flight computer PCB layout">
+          <span class="play"></span>
+        </div>
         <div class="body">
           <h3>EVA</h3>
           <p class="cat">Flight Computer · Gen 1</p>
@@ -283,7 +304,10 @@
       </div>
 
       <div class="card reveal">
-        <div class="media"><img src="assets/research-defense.jpg" alt="Presenting tensile results of recycled PP glass-fiber research"></div>
+        <div class="media yt" data-yt="1YFS3P_NLoE" data-start="1027" role="button" tabindex="0" aria-label="Play research presentation video">
+          <img src="assets/research-defense.jpg" alt="Presenting tensile results of recycled PP glass-fiber research">
+          <span class="play"></span>
+        </div>
         <div class="body">
           <h3>Turning Ocean Plastic into Filament</h3>
           <p class="cat">Authored Research</p>
@@ -409,6 +433,24 @@
 </div>
 
 <script>
+  // Click-to-play YouTube: swap the poster for the embed only when asked.
+  // Add data-yt="VIDEOID" (and optional data-start="seconds") to any .media div.
+  document.querySelectorAll(".media.yt").forEach((m) => {
+    const play = () => {
+      const f = document.createElement("iframe");
+      const start = m.dataset.start ? "&start=" + m.dataset.start : "";
+      f.src = "https://www.youtube-nocookie.com/embed/" + m.dataset.yt + "?autoplay=1" + start;
+      f.allow = "autoplay; encrypted-media; picture-in-picture";
+      f.allowFullscreen = true;
+      f.title = "YouTube video";
+      m.replaceChildren(f);
+      m.removeAttribute("role");
+      m.style.cursor = "default";
+    };
+    m.addEventListener("click", play, { once: true });
+    m.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); } }, { once: true });
+  });
+
   // Fade-up elements as they scroll into view. Falls back to visible if IO is unavailable.
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
