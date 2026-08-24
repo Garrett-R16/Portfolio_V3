@@ -226,7 +226,7 @@
         <div class="body">
           <h3>MAVERIK</h3>
           <p class="cat">Flight Computer · Gen 2</p>
-          <p class="specs">Altium · PCB &amp; schematic design · embedded firmware · C/C++</p>
+          <p class="specs">Altium · STM32 · C/C++ · embedded firmware</p>
           <p class="desc">Elevate's next-generation flight computer — STM32, UWB + RF comms, three pyro channels, and a 5V/8A buck, 70% smaller than the prototypes before it. Runs the full flight software stack: sensor drivers, Kalman filter, state machine, and control loop.</p>
           <!-- SWAP: point this at a MAVERIK-specific video when one is up -->
           <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the build series <b>→</b></a>
@@ -238,7 +238,7 @@
         <div class="body">
           <h3>Elevate</h3>
           <p class="cat">A Rocket That Can Steer Itself</p>
-          <p class="specs">sensor fusion · CAD · C/C++</p>
+          <p class="specs">control systems · sensor fusion · simulation · flight testing</p>
           <p class="desc">A thrust-vector-controlled model rocket stabilized by a 2-axis gimbal and a direct-quaternion non-linear P²+I controller, which held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations. Build and flight content has reached 1M+ views.</p>
           <a class="more" href="https://www.youtube.com/watch?v=DMh3TZubmGo" target="_blank" rel="noopener">watch the flights <b>→</b></a>
         </div>
@@ -249,7 +249,7 @@
         <div class="body">
           <h3>EVA</h3>
           <p class="cat">Flight Computer · Gen 1</p>
-          <p class="specs">PCB &amp; schematic design · soldering · embedded firmware</p>
+          <p class="specs">PCB design · schematic design · C/C++ · state machines</p>
           <p class="desc">The flight computer that flew Elevate — schematic, layout, and firmware built from scratch, with onboard power, sensing, and pyro channels driving the rocket's 2-axis TVC gimbal.</p>
           <a class="more" href="https://www.youtube.com/watch?v=PTA0meSgiaA" target="_blank" rel="noopener">watch the build <b>→</b></a>
         </div>
@@ -260,7 +260,7 @@
         <div class="body">
           <h3>High-Voltage Capacitor Charger</h3>
           <p class="cat">Power Electronics</p>
-          <p class="specs">flyback converters · soldering · oscilloscope · multimeter</p>
+          <p class="specs">power electronics · magnetics · prototyping</p>
           <p class="desc">A zero-voltage-switching flyback driver for rapidly charging a 15,000 µF capacitor bank to 160 VDC — designed, built, and tested at home.</p>
           <!-- SWAP: point this at a charger video or writeup when one is up -->
           <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">see more builds <b>→</b></a>
@@ -272,7 +272,7 @@
         <div class="body">
           <h3>18650 Battery Assembler</h3>
           <p class="cat">Robotics · ML</p>
-          <p class="specs">Python · CAD</p>
+          <p class="specs">robotics · imitation learning · Python</p>
           <p class="desc">Trained a robotic arm to assemble 18650 cells from teleoperated demonstrations using an ACT imitation-learning policy. Honorable Best AMD Hack at StarkHacks.</p>
           <!-- SWAP: point this at the hack repo or devpost when you have the link -->
           <a class="more" href="https://github.com/Garrett-R16" target="_blank" rel="noopener">see the code <b>→</b></a>
@@ -284,7 +284,7 @@
         <div class="body">
           <h3>Sustainability Research</h3>
           <p class="cat">Published Research</p>
-          <p class="specs">Python · LaTeX · CAD</p>
+          <p class="specs">differential scanning calorimetry · tensile analysis · Charpy analysis · materials science · Python · 3D printing</p>
           <p class="desc">A paper I authored on recycling polypropylene from fishing nets and rope and reinforcing it with glass fiber as 3D-printer filament — a way to reduce ocean plastic. Characterized the material with DSC, tensile, and Charpy analysis, then presented and defended the research.</p>
           <a class="more" href="https://arxiv.org/abs/2409.09445" target="_blank" rel="noopener">read the paper <b>→</b></a>
         </div>
@@ -347,8 +347,43 @@
     <p class="about-txt reveal">
       I'm interested in the hardware that makes AI possible — <em>efficient compute, the silicon it runs on, and the power systems that feed it</em>. I think analog and mixed-signal design will play a big role in making compute more efficient, and I like proving ideas by building them: boards, converters, controllers, and the occasional self-steering rocket.
     </p>
-    <!-- populated by the script below from the project specs lines, so it stays in sync -->
-    <div class="chips reveal" id="skills"></div>
+    <!-- skills pool mirrors the resume, plus sensor fusion + embedded firmware -->
+    <div class="chips reveal">
+      <span>PCB &amp; schematic design</span>
+      <span>digital &amp; analog design</span>
+      <span>buck converters</span>
+      <span>flyback converters</span>
+      <span>FPGAs</span>
+      <span>soldering</span>
+      <span>EMI/EMC</span>
+      <span>radiation tolerance</span>
+      <span>SAR ADCs</span>
+      <span>loop analysis &amp; injection</span>
+      <span>oscilloscope</span>
+      <span>logic analyzer</span>
+      <span>multimeter</span>
+      <span>Monte Carlo simulation</span>
+      <span>sensor fusion</span>
+      <span>embedded firmware</span>
+      <span>Altium</span>
+      <span>KiCad</span>
+      <span>SPICE / LTspice</span>
+      <span>Cadence Virtuoso</span>
+      <span>Siemens TIA Portal</span>
+      <span>EPlan</span>
+      <span>Git</span>
+      <span>CAD</span>
+      <span>Claude Code / Codex</span>
+      <span>SystemVerilog</span>
+      <span>C/C++</span>
+      <span>Python</span>
+      <span>MATLAB</span>
+      <span>R</span>
+      <span>LaTeX</span>
+      <span>JavaScript</span>
+      <span>HTML/CSS</span>
+      <span>SCL &amp; ladder logic (PLCs)</span>
+    </div>
   </section>
 
   <footer>
@@ -362,23 +397,6 @@
 </div>
 
 <script>
-  // Build the skills chips from the project specs lines above, deduplicated in order of appearance.
-  (() => {
-    const chips = document.getElementById("skills");
-    if (!chips) return;
-    const seen = new Set();
-    document.querySelectorAll("#work .specs").forEach((s) => {
-      s.textContent.split("·").forEach((t) => {
-        const skill = t.trim();
-        if (!skill || seen.has(skill.toLowerCase())) return;
-        seen.add(skill.toLowerCase());
-        const el = document.createElement("span");
-        el.textContent = skill;
-        chips.appendChild(el);
-      });
-    });
-  })();
-
   // Fade-up elements as they scroll into view. Falls back to visible if IO is unavailable.
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
