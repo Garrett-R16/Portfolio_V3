@@ -200,8 +200,12 @@
     font-family: var(--disp); font-size: clamp(1.7rem, 4.5vw, 2.5rem); font-weight: 600;
     letter-spacing: -0.02em; line-height: 1.2; max-width: 700px;
   }
-  footer .big a { color: var(--accent-txt); text-decoration: none; border-bottom: 3px solid var(--accent); }
-  footer .big a:hover { filter: brightness(1.1); }
+  footer .big a.hello {
+    display: inline-block; background: var(--accent); color: #14100a;
+    padding: 0.06em 0.45em 0.1em; border-radius: 0.3em; text-decoration: none;
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+  footer .big a.hello:hover { filter: brightness(1.08); transform: translateY(-2px); }
   footer .links { margin-top: 30px; }
   footer .fine { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin-top: 48px; }
 </style>
@@ -275,7 +279,6 @@
           <p class="specs">PCB design · C/C++ · state machines</p>
           <p class="desc">Elevate V1 Flight computer. Forced myself to route a 256 pin 0.5mm BGA on a 4 layer board (cruel and unusual, would not recommend).  Specs: 2x pyros, 2x servos, IMU, NXP i.MX RT1062
           </p>
-          <a class="more" href="https://www.youtube.com/watch?v=PTA0meSgiaA&t=3s" target="_blank" rel="noopener">watch the build <b>→</b></a>
         </div>
       </div>
 
@@ -285,7 +288,7 @@
           <h3>High-Voltage Capacitor Charger</h3>
           <p class="cat">Power Electronics (In Design)</p>
           <p class="specs">power electronics · magnetics · prototyping</p>
-          <p class="desc">Zero-voltage-switching (ZVS) flyback driver for rapidly charging a 15,000 µF capacitor bank to 160 VDC. Chunky custom magnetics, heavy copper plating, and thicc traces. Also a load switch for rapidly discharging said bank (don't worry about the application...)
+          <p class="desc">Zero-voltage-switching (ZVS) flyback driver for rapidly charging a 15,000 µF capacitor bank to 160 VDC. Chunky custom magnetics, heavy copper plating, and a load switch for rapidly discharging said bank (don't worry about the application...)
           </p>
           <!-- SWAP: point this at a charger video or writeup when one is up -->
           <!-- <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">see more builds <b>→</b></a> -->
@@ -385,7 +388,7 @@
     <p class="label">04 — About</p>
     <h2>What I'm after</h2>
     <p class="about-txt reveal">
-      I like working on hard or bespoke problems. Particularly, I'm interested in neuromorphic computing, making more computing more efficient, robotics, rockets, and space. In my free time I play guitar, train for triathalons, and make content (1M+ views across platforms).
+      I like working on hard or bespoke problems. Particularly, I'm interested in neuromorphic computing, making computing more efficient, robotics, rockets, and space. In my free time I play guitar, train for triathlons, and make content (1M+ views across platforms).
     </p>
     <!-- skills pool mirrors the resume, plus sensor fusion + embedded firmware -->
     <div class="chips reveal">
@@ -427,10 +430,7 @@
   </section>
 
   <footer>
-    <p class="big reveal">Want to build something together?</p>
-    <nav class="links reveal">
-      <a class="primary" href="mailto:garrettrussell111@gmail.com">Say hello!</a>
-    </nav>
+    <p class="big reveal">Want to build something together? <a class="hello" href="mailto:garrettrussell111@gmail.com">Say hello!</a></p>
     <p class="fine">© 2026 GARRETT RUSSELL</p>
   </footer>
 
