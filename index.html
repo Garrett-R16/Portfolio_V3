@@ -127,20 +127,6 @@
     transition: transform 0.5s ease;
   }
   .card:hover .media img, .card:hover .media video { transform: scale(1.03); }
-  .media.yt { position: relative; cursor: pointer; }
-  .media.yt .play {
-    position: absolute; inset: 0; margin: auto; width: 58px; height: 58px;
-    border-radius: 50%; background: rgba(20, 18, 16, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    transition: transform 0.15s ease, background 0.15s ease;
-  }
-  .media.yt .play::after {
-    content: ""; position: absolute; inset: 0; margin: auto; width: 0; height: 0;
-    border-left: 16px solid var(--accent); border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent; transform: translateX(3px);
-  }
-  .media.yt:hover .play { transform: scale(1.1); background: rgba(20, 18, 16, 0.88); }
-  .media.yt iframe { width: 100%; aspect-ratio: 16 / 10; border: 0; display: block; }
   .card .body { padding: 20px 22px 24px; }
   .card .cat {
     font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em;
@@ -249,11 +235,7 @@
       </div>
 
       <div class="card reveal">
-        <!-- click-to-play: swaps the poster for a YouTube embed, nothing loads until clicked -->
-        <div class="media yt" data-yt="DMh3TZubmGo" role="button" tabindex="0" aria-label="Play Elevate flight video">
-          <img src="assets/elevate-launch.jpg" alt="Elevate lifting off from a snowy field">
-          <span class="play"></span>
-        </div>
+        <div class="media"><img src="assets/elevate-launch.jpg" alt="Elevate lifting off from a snowy field"></div>
         <div class="body">
           <h3>Elevate</h3>
           <p class="cat">A Rocket That Can Steer Itself</p>
@@ -353,7 +335,7 @@
           <h3>Drane Engineering <span class="role">· Intern / Volunteer</span></h3>
           <p class="when">May 2023 – Jan 2024</p>
         </div>
-        <p class="desc">Helped develop an assistive robotic arm for people with neurodegenerative diseases (emphasis on ALS) — researched eye-tracking and assistive-device technology, designed documentation-site mock-ups, and built a prototype GUI with Python, PyQt, and OpenCV.</p>
+        <p class="desc">GUI for assistive arm for people with  neurodegenerative diseases (emphasis on ALS) using Python, PyQt, and OpenCV.</p>
       </div>
     </div>
   </section>
@@ -427,22 +409,6 @@
 </div>
 
 <script>
-  // Click-to-play YouTube: swap the poster for the embed only when asked.
-  document.querySelectorAll(".media.yt").forEach((m) => {
-    const play = () => {
-      const f = document.createElement("iframe");
-      f.src = "https://www.youtube-nocookie.com/embed/" + m.dataset.yt + "?autoplay=1";
-      f.allow = "autoplay; encrypted-media; picture-in-picture";
-      f.allowFullscreen = true;
-      f.title = "YouTube video";
-      m.replaceChildren(f);
-      m.removeAttribute("role");
-      m.style.cursor = "default";
-    };
-    m.addEventListener("click", play, { once: true });
-    m.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); } }, { once: true });
-  });
-
   // Fade-up elements as they scroll into view. Falls back to visible if IO is unavailable.
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
