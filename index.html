@@ -226,10 +226,11 @@
         <div class="body">
           <h3>MAVERIK</h3>
           <p class="cat">Flight Computer · Gen 2</p>
-          <p class="specs">Altium · STM32 · C/C++ · embedded firmware</p>
-          <p class="desc">Elevate's next-generation flight computer — STM32, UWB + RF comms, three pyro channels, and a 5V/8A buck, 70% smaller than the prototypes before it. Runs the full flight software stack: sensor drivers, Kalman filter, state machine, and control loop.</p>
+          <p class="specs">Altium · PCB Design · RF · embedded firmware</p>
+          <p class="desc">Elevate's next-generation flight computer: STM32, UWB + RF comms, three pyro channels, a 5V/8A buck, and &lt;1% larger than previous versions. All drivers are custom because I used fancy new sensors and apparently no-one was C-pilled like I was.
+          </p>
           <!-- SWAP: point this at a MAVERIK-specific video when one is up -->
-          <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">watch the build series <b>→</b></a>
+          <a class="more" href="https://youtu.be/e-Ok50hpXP4" target="_blank" rel="noopener">see how I made it<b>→</b></a>
         </div>
       </div>
 
@@ -238,9 +239,9 @@
         <div class="body">
           <h3>Elevate</h3>
           <p class="cat">A Rocket That Can Steer Itself</p>
-          <p class="specs">control systems · sensor fusion · simulation · flight testing</p>
-          <p class="desc">A thrust-vector-controlled model rocket stabilized by a 2-axis gimbal and a direct-quaternion non-linear P²+I controller, which held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations. Build and flight content has reached 1M+ views.</p>
-          <a class="more" href="https://www.youtube.com/watch?v=DMh3TZubmGo" target="_blank" rel="noopener">watch the flights <b>→</b></a>
+          <p class="specs">control systems · sensor fusion · kalman filtering</p>
+          <p class="desc">Thrust-vector-controlled model rocket stabilized by a 2-axis gimbal and a direct-quaternion non-linear P²+I controller, which held attitude within 5° of setpoint on the final of 4 launches across 2 design iterations. TODO FIND A WAY TO SHOWCASE YOUTUBE ON HERE WITHOUT ADDING MORE SHTUFF</p>
+          <a class="more" href="https://www.youtube.com/watch?v=DMh3TZubmGo" target="_blank" rel="noopener">watch the V2 flights <b>→</b></a>
         </div>
       </div>
 
@@ -249,9 +250,10 @@
         <div class="body">
           <h3>EVA</h3>
           <p class="cat">Flight Computer · Gen 1</p>
-          <p class="specs">PCB design · schematic design · C/C++ · state machines</p>
-          <p class="desc">The flight computer that flew Elevate — schematic, layout, and firmware built from scratch, with onboard power, sensing, and pyro channels driving the rocket's 2-axis TVC gimbal.</p>
-          <a class="more" href="https://www.youtube.com/watch?v=PTA0meSgiaA" target="_blank" rel="noopener">watch the build <b>→</b></a>
+          <p class="specs">PCB design · C/C++ · state machines</p>
+          <p class="desc">Elevate V1 Flight computer. Forced myself to route a 256 pin 0.5mm BGA on a 4 layer board (cruel and unusual, would not reccomend).  Specs: 2x pryos, 2x servos, IMU, NXP i.MX RT1062
+          </p>
+          <a class="more" href="https://www.youtube.com/watch?v=PTA0meSgiaA&t=3s" target="_blank" rel="noopener">watch the build <b>→</b></a>
         </div>
       </div>
 
@@ -259,11 +261,12 @@
         <div class="media"><img src="assets/hv-charger.jpg" alt="160 VDC electrolytic capacitor from the charger bank"></div>
         <div class="body">
           <h3>High-Voltage Capacitor Charger</h3>
-          <p class="cat">Power Electronics</p>
+          <p class="cat">Power Electronics (In Design)</p>
           <p class="specs">power electronics · magnetics · prototyping</p>
-          <p class="desc">A zero-voltage-switching flyback driver for rapidly charging a 15,000 µF capacitor bank to 160 VDC — designed, built, and tested at home.</p>
+          <p class="desc">Zero-voltage-switching (ZVS) flyback driver for rapidly charging a 15,000 µF capacitor bank to 160 VDC. Chunky custom magnetics, heavy copper plating, and thicc traces. Also a load switch for rapidly discharging said bank (don't worry about the application...)
+          </p>
           <!-- SWAP: point this at a charger video or writeup when one is up -->
-          <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">see more builds <b>→</b></a>
+          <!-- <a class="more" href="https://www.youtube.com/@TheGarrettR" target="_blank" rel="noopener">see more builds <b>→</b></a> -->
         </div>
       </div>
 
@@ -275,17 +278,19 @@
           <p class="specs">robotics · imitation learning · Python</p>
           <p class="desc">Trained a robotic arm to assemble 18650 cells from teleoperated demonstrations using an ACT imitation-learning policy. Honorable Best AMD Hack at StarkHacks.</p>
           <!-- SWAP: point this at the hack repo or devpost when you have the link -->
-          <a class="more" href="https://github.com/Garrett-R16" target="_blank" rel="noopener">see the code <b>→</b></a>
+          <a class="more" href="https://devpost.com/software/ai-battery-assembler#updates" target="_blank" rel="noopener">read the devpost<b>→</b></a>
         </div>
       </div>
 
       <div class="card reveal">
         <div class="media"><img src="assets/research-defense.jpg" alt="Presenting tensile results of recycled PP glass-fiber research"></div>
         <div class="body">
-          <h3>Sustainability Research</h3>
-          <p class="cat">Published Research</p>
-          <p class="specs">differential scanning calorimetry · tensile analysis · Charpy analysis · materials science · Python · 3D printing</p>
-          <p class="desc">A paper I authored on recycling polypropylene from fishing nets and rope and reinforcing it with glass fiber as 3D-printer filament — a way to reduce ocean plastic. Characterized the material with DSC, tensile, and Charpy analysis, then presented and defended the research.</p>
+          <h3>Turning Ocean Plastic into Filament</h3>
+          <p class="cat">Authored Research</p>
+          <p class="specs">materials science · Python · 3D printing</p>
+          <p class="desc">Paper + defense on  recycling  polypropylene from fishing nets and rope then reinforcing it with glass fiber as 3D-printer filament to clean up our oceans. Characterized via DSC, tensile, and Charpy analysis.
+
+          </p>
           <a class="more" href="https://arxiv.org/abs/2409.09445" target="_blank" rel="noopener">read the paper <b>→</b></a>
         </div>
       </div>
@@ -324,6 +329,13 @@
           <p class="when">Aug – Dec 2024</p>
         </div>
         <p class="desc">Monte Carlo simulation of orbital collisions in Python to model sustainable debris limits.</p>
+      </div>
+      <div class="job">
+        <div class="row">
+          <h3>Drane Engineering <span class="role">· Intern / Volunteer</span></h3>
+          <p class="when">May 2023 – Jan 2024</p>
+        </div>
+        <p class="desc">Helped develop an assistive robotic arm for people with neurodegenerative diseases (emphasis on ALS) — researched eye-tracking and assistive-device technology, designed documentation-site mock-ups, and built a prototype GUI with Python, PyQt, and OpenCV.</p>
       </div>
     </div>
   </section>
