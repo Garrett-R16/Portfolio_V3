@@ -292,10 +292,9 @@
       </div>
 
       <div class="card reveal">
-        <div class="media">
-          <video autoplay muted loop playsinline poster="assets/18650-assembler.jpg" aria-label="Robot arm placing an 18650 cell">
-            <source src="assets/18650-pnp.mp4" type="video/mp4">
-          </video>
+        <div class="media yt" data-vid="assets/18650-pnp.mp4" role="button" tabindex="0" aria-label="Play pick-and-place video">
+          <img src="assets/18650-assembler.jpg" alt="Robot arm placing an 18650 cell">
+          <span class="play"></span>
         </div>
         <div class="body">
           <h3>18650 Battery Assembler</h3>
@@ -437,16 +436,24 @@
 </div>
 
 <script>
-  // Click-to-play YouTube: swap the poster for the embed only when asked.
-  // Add data-yt="VIDEOID" (and optional data-start="seconds") to any .media div.
+  // Click-to-play: swap the poster for the video only when asked.
+  // data-yt="VIDEOID" (optional data-start="seconds") embeds YouTube;
+  // data-vid="path.mp4" plays a local file with controls.
   document.querySelectorAll(".media.yt").forEach((m) => {
     const play = () => {
-      const f = document.createElement("iframe");
-      const start = m.dataset.start ? "&start=" + m.dataset.start : "";
-      f.src = "https://www.youtube-nocookie.com/embed/" + m.dataset.yt + "?autoplay=1" + start;
-      f.allow = "autoplay; encrypted-media; picture-in-picture";
-      f.allowFullscreen = true;
-      f.title = "YouTube video";
+      let f;
+      if (m.dataset.vid) {
+        f = document.createElement("video");
+        f.src = m.dataset.vid;
+        f.controls = true; f.autoplay = true; f.playsInline = true; f.loop = true;
+      } else {
+        f = document.createElement("iframe");
+        const start = m.dataset.start ? "&start=" + m.dataset.start : "";
+        f.src = "https://www.youtube-nocookie.com/embed/" + m.dataset.yt + "?autoplay=1" + start;
+        f.allow = "autoplay; encrypted-media; picture-in-picture";
+        f.allowFullscreen = true;
+        f.title = "YouTube video";
+      }
       m.replaceChildren(f);
       m.removeAttribute("role");
       m.style.cursor = "default";
